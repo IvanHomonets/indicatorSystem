@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="mydb@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="mydb">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="first_schema"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <table id="8" parent="2" name="indicator"/>
+    <table id="9" parent="2" name="indicatormodel"/>
+    <table id="10" parent="2" name="metadata"/>
+    <table id="11" parent="2" name="name_category"/>
+    <column id="12" parent="8" name="idIndicator">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="8" name="parent">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="14" parent="8" name="fk_Indicator_Indicator1_idx">
+      <ColNames>parent</ColNames>
+    </index>
+    <key id="15" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idIndicator</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="16" parent="8" name="fk_Indicator_Indicator1">
+      <ColNames>parent</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>indicator</RefTableName>
+      <RefColNames>idIndicator</RefColNames>
+    </foreign-key>
+    <column id="17" parent="9" name="idIndicatorModel">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="9" name="name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="9" name="version">
+      <Position>3</Position>
+      <DataType>decimal(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="9" name="entry">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="21" parent="9" name="fk_IndicatorModel_Indicator1_idx">
+      <ColNames>entry</ColNames>
+    </index>
+    <key id="22" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idIndicatorModel</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="23" parent="9" name="fk_IndicatorModel_Indicator1">
+      <ColNames>entry</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>indicator</RefTableName>
+      <RefColNames>idIndicator</RefColNames>
+    </foreign-key>
+    <column id="24" parent="10" name="idMetadata">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="10" name="key">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="10" name="value">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="10" name="type">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="10" name="model_ref">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="29" parent="10" name="indicator_ref">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="30" parent="10" name="fk_Metadata_Indicator1_idx">
+      <ColNames>indicator_ref</ColNames>
+    </index>
+    <index id="31" parent="10" name="fk_Metadata_IndicatorModel1_idx">
+      <ColNames>model_ref</ColNames>
+    </index>
+    <key id="32" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idMetadata</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="33" parent="10" name="fk_Metadata_IndicatorModel1">
+      <ColNames>model_ref</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>indicatormodel</RefTableName>
+      <RefColNames>idIndicatorModel</RefColNames>
+    </foreign-key>
+    <foreign-key id="34" parent="10" name="fk_Metadata_Indicator1">
+      <ColNames>indicator_ref</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>indicator</RefTableName>
+      <RefColNames>idIndicator</RefColNames>
+    </foreign-key>
+    <column id="35" parent="11" name="idName_category">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="11" name="Name_categorycol">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="37" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idName_category</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
